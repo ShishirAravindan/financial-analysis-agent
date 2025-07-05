@@ -1,0 +1,30 @@
+# UV Package Management
+
+This project uses `uv` for package management. Always follow these rules:
+
+## Dependency Management
+- **NEVER suggest or create `requirements.txt` files**
+- **ALWAYS use [pyproject.toml](mdc:financial-analysis-agent/pyproject.toml) for dependencies**
+- When adding new dependencies, add them to the `dependencies` array in `pyproject.toml`
+- Use the format: `"package-name>=version"` for dependencies
+
+## Project Structure
+- The main Streamlit app is in [main.py](mdc:financial-analysis-agent/main.py)
+- Dependencies are managed in [pyproject.toml](mdc:financial-analysis-agent/pyproject.toml)
+- The project uses `uv.lock` for dependency locking
+
+## Commands
+- Use `uv add package-name` to add dependencies
+- Use `uv run streamlit run main.py` to run the app
+- Use `uv sync` to install dependencies
+
+## Example
+When suggesting new dependencies, format them like this in pyproject.toml:
+```toml
+dependencies = [
+    "numpy>=2.3.1",
+    "pandas>=2.3.0",
+    "streamlit>=1.46.1",
+    "new-package>=1.0.0",
+]
+```
